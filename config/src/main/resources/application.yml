@@ -1,0 +1,28 @@
+
+server:
+  port: 8091
+
+spring:
+  application:
+    # name of the application
+    name: config-server
+    # available profiles of the application
+  profiles:
+    active: dev
+  cloud:
+    config:
+      server:
+        git:
+          default-label: main
+          # git url where the configurations are stored
+          uri: https://github.com/asifdg360/config-server.git
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+
